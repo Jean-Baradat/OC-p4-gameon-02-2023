@@ -18,7 +18,20 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
 function launchModal() {
-  modalbg.style.display = "block";
+  modalbg.style.display = screen.height <= 800 || screen.width <= 500 ? "block" : "flex";
+  // document.querySelector("body").style.overflow = "hidden";
+  // To get the scroll position of current webpage
+  let TopScroll = window.pageYOffset || document.documentElement.scrollTop;
+  let LeftScroll = window.pageXOffset || document.documentElement.scrollLeft;
+
+  console.log(window.pageYOffset);
+  console.log(document.documentElement.scrollTop);
+
+
+  // if scroll happens, set it to the previous value
+  window.onscroll = function () {
+    window.scrollTo(LeftScroll, TopScroll);
+  };
 }
 
 // Close modal form
@@ -32,6 +45,8 @@ content.addEventListener('animationend', (event) => {
   if (event.animationName === "modalclose") {
     modalbg.style.display = "none";
     content.classList.remove("content--is-closed");
+    // document.querySelector("body").style.overflow = "auto";
+    window.onscroll = function () { };
   }
 });
 
@@ -39,6 +54,6 @@ document.querySelector("#first").addEventListener("input", () => {
   console.log("test");
 });
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   // ICI
 });
