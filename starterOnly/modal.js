@@ -35,3 +35,10 @@ content.addEventListener('animationend', (event) => {
   }
 });
 
+document.querySelector("#first").addEventListener("input", () => {
+  console.log("test");
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  // ICI
+});
