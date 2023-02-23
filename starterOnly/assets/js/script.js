@@ -1,7 +1,7 @@
 window.addEventListener('load', windowLoaded);
 function windowLoaded() {
     // Variable ------------------------------------------------------ 
-    const regexFullName = /^(?!.*(?:--|''|\s\s))[A-Za-zÀ-ÖØ-öø-ſ]+(?:[-' ][A-Za-zÀ-ÖØ-öø-ſ]+)*$/;
+    const regexFullName = /^(?!.*(?:--|''))[A-Za-zÀ-ÖØ-öø-ſ ]{2,}(?:[-' ]{1,}[A-Za-zÀ-ÖØ-öø-ſ ]+)*$/;
     const regexMail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/;
     const regexBirthDate = /^((19|20)\d{2})-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/;
     const regexNbrTournaments = /^(0|[1-9]\d?|99)$/;
@@ -60,7 +60,7 @@ function windowLoaded() {
             textControl[i].style.boxShadow = "0 0 0 3px green";
             formFieldsInfos[i].style.visibility = "hidden";
             formFieldsInfos[i].style.height = "0";
-            if (!listRegex[i].test(textControl[i].value)) {
+            if (!listRegex[i].test(textControl[i].value) || !/^(?!\s*$).+/.test(textControl[i].value)) {
                 textControl[i].style.boxShadow = "0 0 0 3px red";
                 formFieldsInfos[i].style.visibility = "visible";
                 formFieldsInfos[i].style.height = "inherit";
@@ -99,7 +99,7 @@ function windowLoaded() {
             textControl[i].style.boxShadow = "0 0 0 3px green";
             formFieldsInfos[i].style.visibility = "hidden";
             formFieldsInfos[i].style.height = "0";
-            if (!listRegex[i].test(textControl[i].value)) {
+            if (!listRegex[i].test(textControl[i].value) || !/^(?!\s*$).+/.test(textControl[i].value)) {
                 textControl[i].style.boxShadow = "0 0 0 3px red";
                 formFieldsInfos[i].style.visibility = "visible";
                 formFieldsInfos[i].style.height = "inherit";
@@ -136,7 +136,6 @@ function windowLoaded() {
             return false;
         }
     }
-
 }
 
 function editNav() {
