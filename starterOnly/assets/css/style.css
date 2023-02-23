@@ -159,6 +159,11 @@ main {
 
 /* Modal form */
 
+.mess-success-submit {
+  display: none;
+  margin-top: 1rem;
+}
+
 .button {
   background: #fe142f;
   margin-top: 0.5em;

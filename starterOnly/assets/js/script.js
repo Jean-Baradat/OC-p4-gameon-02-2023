@@ -20,6 +20,7 @@ function windowLoaded() {
     const isNecessaryCheckbox = document.querySelector(".is-necessary");
     const formFieldsInfos = document.querySelectorAll(".form-fields-infos");
     const inputLocation = document.querySelectorAll("input[name='location']");
+    const messSuccessSubmit = document.querySelector(".mess-success-submit");
 
     // Event ----------------------------------------------------------
     formRegister.addEventListener("submit", tryToSubmit);
@@ -128,7 +129,8 @@ function windowLoaded() {
 
         if (isReadyToSubmit === true) {
             console.log("Form Submit");
-            // HERE CODE IF FORM IS READY TO SUBMIT
+            formRegister.style.display = "none";
+            messSuccessSubmit.style.display = "block";
         } else {
             switchTest = true;
             return false;
