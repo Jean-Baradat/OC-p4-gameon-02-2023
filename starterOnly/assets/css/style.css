@@ -36,6 +36,9 @@ img {
 .topnav {
   overflow: hidden;
   margin: 3.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header-logo {
@@ -44,6 +47,46 @@ img {
 
 .main-navbar {
   float: right;
+}
+
+.navbar-others {
+  position: absolute;
+  right: 1.5rem;
+  top: 5rem;
+  z-index: 2;
+  background-color: #fff;
+  box-shadow: 0 0 13px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  margin-top: 0.5rem;
+}
+
+.navbar-home {
+  display: flex;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-others {
+    position: initial;
+    box-shadow: none;
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .header-logo .is-mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-logo .is-all {
+    display: none;
+  }
 }
 
 .topnav a {
@@ -68,6 +111,7 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  height: min-content;
 }
 
 .topnav .icon {
@@ -90,15 +134,15 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {
+  /* .topnav.responsive {
     position: relative;
-  }
+  } */
 
-  .topnav.responsive .icon {
+  /* .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
-  }
+  } */
 
   .topnav.responsive a {
     float: none;
@@ -112,12 +156,6 @@ img {
 @media screen and (max-width: 540px) {
   .topnav a {
     display: none;
-  }
-
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
   }
 }
 
@@ -185,7 +223,7 @@ main {
 .bground {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   left: 0;
   top: 0;
   height: 100%;
@@ -507,7 +545,6 @@ input[data-error]::after {
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 424px;
 }
 
 .hero-content::after {
@@ -526,7 +563,7 @@ input[data-error]::after {
 }
 
 .hero-headline {
-  font-size: 6rem;
+  font-size: 8vw;
   font-weight: normal;
   white-space: nowrap;
 }
@@ -577,6 +614,12 @@ footer {
   margin: 0 20px;
 }
 
+@media screen and (min-width: 1225px) {
+  .hero-headline {
+    font-size: 6rem;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .content {
     max-width: none;
@@ -607,7 +650,7 @@ footer {
   }
 
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 3rem;
     white-space: normal;
   }
 
