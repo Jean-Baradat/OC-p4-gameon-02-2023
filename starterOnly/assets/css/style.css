@@ -261,11 +261,6 @@ input {
   height: 48px;
 }
 
-.formData {
-  /* margin-bottom: 1rem; */
-  /* padding-top: 0.4rem; */
-}
-
 .formData:nth-child(5) {
   padding-top: 0.5rem;
 }
