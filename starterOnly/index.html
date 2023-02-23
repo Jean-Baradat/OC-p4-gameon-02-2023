@@ -59,72 +59,109 @@
             <div class="content">
                 <span class="close"></span>
                 <div class="modal-body">
-                    <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
+                    <form name="reserve" method="get">
+                        <!-- onsubmit="return validate(event);" -->
                         <div class="formData">
                             <label for="first">Prénom</label>
-                            <input class="text-control" type="text" id="first" name="first" minlength="2" />
+                            <input class="text-control" type="text" id="first" name="first" />
+                            <p class="form-fields-infos">
+                                <i class="fa-solid fa-circle-info"></i>
+                                2 caractères minimum avec espaces, tirets et apostrophes autorisés sauf au début et à la
+                                fin et plus de 2 fois de suite.
+                            </p>
                         </div>
                         <div class="formData">
                             <label for="last">Nom</label>
                             <input class="text-control" type="text" id="last" name="last" />
+                            <p class="form-fields-infos">
+                                <i class="fa-solid fa-circle-info"></i>
+                                2 caractères minimum avec espaces, tirets et apostrophes autorisés sauf au début et à la
+                                fin et plus de 2 fois de suite.
+                            </p>
                         </div>
                         <div class="formData">
                             <label for="email">E-mail</label>
-                            <input class="text-control" type="email" id="email" name="email" />
+                            <input class="text-control" type="text" id="email" name="email" />
+                            <p class="form-fields-infos">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Doit respecter le format nom@domain.extention par exemple jean@gmail.com.
+                            </p>
                         </div>
                         <div class="formData">
                             <label for="birthdate">Date de naissance</label>
                             <input class="text-control" type="date" id="birthdate" name="birthdate" />
+                            <p class="form-fields-infos">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Doit être comprise entre le 01/01/1900 et le 31/12/2099.
+                            </p>
                         </div>
                         <div class="formData">
                             <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label>
-                            <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                            <input type="number" class="text-control" id="quantity" name="quantity">
+                            <p class="form-fields-infos">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Doit être compris entre le 0 et le 99.
+                            </p>
                         </div>
-                        <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
                         <div class="formData">
+                            <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
                             <input class="checkbox-input" type="radio" id="location1" name="location"
                                 value="New York" />
                             <label class="checkbox-label" for="location1">
                                 <span class="checkbox-icon"></span>
-                                New York</label>
+                                New York
+                            </label>
                             <input class="checkbox-input" type="radio" id="location2" name="location"
                                 value="San Francisco" />
                             <label class="checkbox-label" for="location2">
                                 <span class="checkbox-icon"></span>
-                                San Francisco</label>
+                                San Francisco
+                            </label>
                             <input class="checkbox-input" type="radio" id="location3" name="location" value="Seattle" />
                             <label class="checkbox-label" for="location3">
                                 <span class="checkbox-icon"></span>
-                                Seattle</label>
+                                Seattle
+                            </label>
                             <input class="checkbox-input" type="radio" id="location4" name="location" value="Chicago" />
                             <label class="checkbox-label" for="location4">
                                 <span class="checkbox-icon"></span>
-                                Chicago</label>
+                                Chicago
+                            </label>
                             <input class="checkbox-input" type="radio" id="location5" name="location" value="Boston" />
                             <label class="checkbox-label" for="location5">
                                 <span class="checkbox-icon"></span>
-                                Boston</label>
+                                Boston
+                            </label>
                             <input class="checkbox-input" type="radio" id="location6" name="location"
                                 value="Portland" />
                             <label class="checkbox-label" for="location6">
                                 <span class="checkbox-icon"></span>
-                                Portland</label>
+                                Portland
+                            </label>
+                            <p class="form-fields-infos">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Sélectionner au moins une ville au choix.
+                            </p>
                         </div>
 
                         <div class="formData">
                             <div class="form-checkbox">
                                 <input class="checkbox-input" type="checkbox" id="checkbox1" />
-                                <label class="checkbox2-label" for="checkbox1" required>
-                                    <span class="checkbox-icon"></span>
+                                <label class="checkbox2-label" for="checkbox1">
+                                    <span class="checkbox-icon is-necessary"></span>
                                     J'ai lu et accepté
                                     <a class="link-terms-of-use" href="#">les conditions d'utilisation</a>.
                                 </label>
+                                <p class="form-fields-infos">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                    Veiller lire et accepter les conditions d'utilisation.
+                                </p>
                             </div>
                             <div class="form-checkbox">
                                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                                 <label class="checkbox2-label" for="checkbox2">
                                     <span class="checkbox-icon"></span>
-                                    Je Je souhaite être prévenu des prochains évènements.
+                                    Je souhaite être prévenu des prochains évènements.
                                 </label>
                             </div>
                         </div>

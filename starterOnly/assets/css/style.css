@@ -83,6 +83,10 @@ img {
     float: right;
     display: block;
   }
+
+  .content {
+    max-width: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -183,7 +187,6 @@ main {
   width: 100%;
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
-  overflow: hidden;
   align-items: center;
   justify-content: center;
 }
@@ -202,14 +205,27 @@ main {
   margin: 0 auto;
 }
 
+.form-fields-infos {
+  /* display: none; */
+  visibility: hidden;
+  font-size: 12px;
+  font-weight: normal;
+  /* position: absolute; */
+  padding: 0;
+  padding-top: 3px;
+  color: rgb(255, 190, 190);
+  /* margin-right: 8%; */
+  height: 0;
+}
+
+.form-checkbox {
+  margin: 0.4rem 0;
+}
+
 @media screen and (max-height: 800px) {
   .bground {
     overflow-y: auto;
     height: 100vh;
-  }
-
-  .content {
-    border-radius: 0;
   }
 }
 
@@ -246,7 +262,12 @@ input {
 }
 
 .formData {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
+  /* padding-top: 0.4rem; */
+}
+
+.formData:nth-child(5) {
+  padding-top: 0.5rem;
 }
 
 .formData[data-error]::after {
@@ -270,10 +291,6 @@ input {
   border: 2px solid #e54858;
 }
 
-.form-checkbox {
-  margin: 0.5em 0;
-}
-
 .link-terms-of-use {
   color: #fff;
 }
@@ -290,6 +307,7 @@ input[data-error]::after {
   margin-left: 36px;
   font-size: 12px;
   font-weight: normal;
+  cursor: pointer;
 }
 
 .checkbox-label .checkbox-icon,
@@ -557,6 +575,15 @@ footer {
   padding-left: 2vw;
   padding-right: 2vw;
   margin: 0 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .content {
+    max-width: none;
+    height: 100vh;
+    border-radius: 0;
+    overflow-y: auto;
+  }
 }
 
 @media screen and (max-width: 800px) {
