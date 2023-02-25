@@ -10,6 +10,7 @@ function windowLoaded() {
     var NbrInputUnchecked = 0;
 
     // DOM ------------------------------------------------------------
+    const body = document.querySelector(".html");
     const modalbg = document.querySelector(".bground");
     const modalBtn = document.querySelectorAll(".modal-btn");
     const content = document.querySelector(".content");
@@ -36,6 +37,8 @@ function windowLoaded() {
         modalbg.style.display = window.innerHeight <= 890 || window.innerWidth <= 500 ? "block" : "flex";
         let TopScroll = window.pageYOffset || document.documentElement.scrollTop;
         let LeftScroll = window.pageXOffset || document.documentElement.scrollLeft;
+        body.style.overflow = "hidden";
+        body.style.paddingRight = "17px";
         window.onscroll = () => {
             window.scrollTo(LeftScroll, TopScroll);
         };
@@ -52,6 +55,23 @@ function windowLoaded() {
             modalbg.style.display = "none";
             content.classList.remove("content--is-closed");
             window.onscroll = null;
+
+            body.style.overflow = "auto";
+            body.style.paddingRight = "0";
+
+            switchTest = false;
+            formRegister.reset();
+            formRegister.style.display = "block";
+            messSuccessSubmit.style.display = "none";
+            isNecessaryCheckbox.style.boxShadow = "none";
+
+            for (let i = 0; i <= 6; i++) {
+                if (i <= 4) {
+                    textControl[i].style.boxShadow = "none";
+                }
+                formFieldsInfos[i].style.visibility = "hidden";
+                formFieldsInfos[i].style.height = "0";
+            }
         }
     }
 
@@ -128,7 +148,6 @@ function windowLoaded() {
         }
 
         if (isReadyToSubmit === true) {
-            console.log("Form Submit");
             formRegister.style.display = "none";
             messSuccessSubmit.style.display = "block";
         } else {
