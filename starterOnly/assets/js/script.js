@@ -10,7 +10,7 @@ function windowLoaded() {
     var NbrInputUnchecked = 0;
 
     // DOM ------------------------------------------------------------
-    const body = document.querySelector(".html");
+    const html = document.querySelector(".html");
     const modalbg = document.querySelector(".bground");
     const modalBtn = document.querySelectorAll(".modal-btn");
     const content = document.querySelector(".content");
@@ -33,38 +33,54 @@ function windowLoaded() {
     inputLocation.forEach((input) => input.addEventListener("input", handleInputLocation));
 
     // Function -------------------------------------------------------
+    /**
+     * Function when register form modal is open
+     */
     function launchModal() {
         modalbg.style.display = window.innerHeight <= 890 || window.innerWidth <= 500 ? "block" : "flex";
         let TopScroll = window.pageYOffset || document.documentElement.scrollTop;
         let LeftScroll = window.pageXOffset || document.documentElement.scrollLeft;
-        body.style.overflow = "hidden";
-        body.style.paddingRight = "17px";
+
+        // undisplay window scroll bar
+        html.style.overflow = "hidden";
+        html.style.paddingRight = "17px";
+
+        // set the scroll position
         window.onscroll = () => {
             window.scrollTo(LeftScroll, TopScroll);
         };
     }
 
+    /**
+     * Function when register form modal is closed
+     */
     function closeModal() {
         content.classList.add("content--is-closed");
     }
 
-    // when animation in "content" DOM element is finished
+    /**
+     * Function when animation in "content" DOM element is finished
+     * @param {object} event 
+     */
     function stopAnimation(event) {
         // if this is the end of modalclose animation
         if (event.animationName === "modalclose") {
             modalbg.style.display = "none";
             content.classList.remove("content--is-closed");
+
+            // reset to initial scroll
             window.onscroll = null;
 
-            body.style.overflow = "auto";
-            body.style.paddingRight = "0";
+            // display window scroll bar
+            html.style.overflow = "auto";
+            html.style.paddingRight = "0";
 
-            switchTest = false;
+            // reset all register form value and helper
             formRegister.reset();
+            switchTest = false;
             formRegister.style.display = "block";
             messSuccessSubmit.style.display = "none";
             isNecessaryCheckbox.style.boxShadow = "none";
-
             for (let i = 0; i <= 6; i++) {
                 if (i <= 4) {
                     textControl[i].style.boxShadow = "none";
@@ -75,6 +91,9 @@ function windowLoaded() {
         }
     }
 
+    /**
+     * Handle register form helper when enter data : textControl (first name, last name, email, birthdate, GameOn tournaments)
+     */
     function handleFormTextControl() {
         for (let i = 0; i <= 4; i++) {
             textControl[i].style.boxShadow = "0 0 0 3px green";
@@ -93,6 +112,9 @@ function windowLoaded() {
         }
     }
 
+    /**
+     * Handle checkbox needed of register form : checkbox1 (the terms of use)
+     */
     function checkbox1Change() {
         if (this.checked) {
             isNecessaryCheckbox.style.boxShadow = "none";
@@ -105,16 +127,27 @@ function windowLoaded() {
         }
     }
 
+    /**
+     * Handle radio button needed of register form : inputLocation (GameOn Tournament location)
+     */
     function handleInputLocation() {
         formFieldsInfos[5].style.visibility = "hidden";
         formFieldsInfos[5].style.height = "0";
     }
 
+    /**
+     * Function when the register form is try to submit 
+     * @param {object} event 
+     * @returns {boolean} false
+     */
     function tryToSubmit(event) {
+        // stop default form event
         event.preventDefault();
+
         var isReadyToSubmit = true;
         NbrInputUnchecked = 0;
 
+        // test all register form input
         for (let i = 0; i <= 4; i++) {
             textControl[i].style.boxShadow = "0 0 0 3px green";
             formFieldsInfos[i].style.visibility = "hidden";
@@ -127,6 +160,7 @@ function windowLoaded() {
             }
         }
 
+        // test if one radio button is selected
         for (let i = 0; i < inputLocation.length; i++) {
             if (!inputLocation[i].checked) {
                 NbrInputUnchecked++;
@@ -140,6 +174,7 @@ function windowLoaded() {
             }
         }
 
+        // test if checkbox needed (the terms of use) is checked
         if (!checkbox1.checked) {
             isNecessaryCheckbox.style.boxShadow = "0 0 0 3px red";
             formFieldsInfos[6].style.visibility = "visible";
@@ -147,7 +182,9 @@ function windowLoaded() {
             isReadyToSubmit = false;
         }
 
+        // final test with isReadyToSubmit if false nothing happen
         if (isReadyToSubmit === true) {
+            // FORM IS SUCCESSFULLY SUBMITTED
             formRegister.style.display = "none";
             messSuccessSubmit.style.display = "block";
         } else {
@@ -157,6 +194,9 @@ function windowLoaded() {
     }
 }
 
+/**
+ * Handle responsive Menu
+ */
 function editNav() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
