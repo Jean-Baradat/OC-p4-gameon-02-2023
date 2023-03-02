@@ -24,7 +24,7 @@
             <div class="navbar-container">
                 <div class="navbar-home">
                     <a href="#" class="active"><span>Accueil</span></a>
-                    <a href="javascript:void(0);" class="icon" onclick="editNav()">
+                    <a href="javascript:void(0);" class="icon" onclick="editNav(false)">
                         <i class="fa fa-bars"></i>
                     </a>
                 </div>
@@ -35,8 +35,6 @@
                     <a href="#"><span>Évènements passés</span></a>
                 </div>
             </div>
-
-
         </div>
     </div>
     </div>
@@ -65,8 +63,31 @@
 
         <div class="bground">
             <div class="content">
-                <span class="close"></span>
+                <div class="topnav" id="myTopnavInModal">
+                    <div class="header-logo">
+                        <img class="is-all" alt="logo" src="./assets/img/Logo.webp" width="auto" height="auto" />
+                        <img class="is-mobile" alt="logo" src="./assets/img/Logo_mobile.webp" width="auto"
+                            height="auto" />
+                    </div>
+                    <div class="main-navbar">
+                        <div class="navbar-container">
+                            <div class="navbar-home">
+                                <a href="#" class="active"><span>Accueil</span></a>
+                                <a href="javascript:void(0);" class="icon" onclick="editNav(true)">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                            <div class="navbar-others">
+                                <a href="#"><span>Détails de l'évènement</span></a>
+                                <a href="#"><span>À propos</span></a>
+                                <a href="#"><span>Contact</span></a>
+                                <a href="#"><span>Évènements passés</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="modal-body">
+                    <span class="close"></span>
                     <form name="reserve" method="get">
                         <!-- onsubmit="return validate(event);" -->
                         <div class="formData">

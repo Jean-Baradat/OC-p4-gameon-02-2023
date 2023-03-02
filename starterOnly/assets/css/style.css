@@ -35,10 +35,19 @@ img {
 
 .topnav {
   overflow: hidden;
-  margin: 3.5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #fff;
+}
+
+#myTopnav {
+  margin: 3.5%;
+}
+
+#myTopnavInModal {
+  margin: 0;
+  padding: 1rem;
 }
 
 .header-logo {
@@ -69,11 +78,15 @@ img {
   align-items: center;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .navbar-others {
     position: initial;
     box-shadow: none;
     margin-top: 0;
+  }
+
+  #myTopnavInModal {
+    display: none;
   }
 }
 
@@ -244,7 +257,6 @@ main {
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding-top: 10px;
   margin: 0 auto;
 }
 
@@ -279,6 +291,7 @@ main {
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+  position: relative;
 }
 
 label {
@@ -414,8 +427,8 @@ input[data-error]::after {
 
 .close {
   position: absolute;
-  right: 15px;
-  top: 15px;
+  right: 1.5rem;
+  top: 0;
   width: 32px;
   height: 32px;
   opacity: 1;

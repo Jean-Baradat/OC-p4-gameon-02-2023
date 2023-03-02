@@ -197,8 +197,12 @@ function windowLoaded() {
 /**
  * Handle responsive Menu
  */
-function editNav() {
-    var x = document.getElementById("myTopnav");
+function editNav(isInModal) {
+    if (isInModal) {
+        var x = document.getElementById("myTopnavInModal");
+    } else {
+        var x = document.getElementById("myTopnav");
+    }
     if (x.className === "topnav") {
         x.className += " responsive";
     } else {
